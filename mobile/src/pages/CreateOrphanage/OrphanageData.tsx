@@ -87,7 +87,7 @@ export default function OrphanageData() {
   }
 
   return (
-    <ScrollView style={styles.container} contentContainerStyle={{ padding: 24 }}>
+    <ScrollView showsVerticalScrollIndicator={false} style={styles.container} contentContainerStyle={{ padding: 24 }}>
       <Text style={styles.title}>Dados</Text>
 
       <Text style={styles.label}>Nome</Text>
@@ -115,7 +115,7 @@ export default function OrphanageData() {
       <View style={styles.uploadedImagesContainer}>
         {images.map(image => {
           return (
-            <Image 
+            <Image
               key={image}
               source={{ uri: image }}
               style={styles.uploadedImage}
@@ -148,8 +148,8 @@ export default function OrphanageData() {
 
       <View style={styles.switchContainer}>
         <Text style={styles.label}>Atende final de semana?</Text>
-        <Switch 
-          thumbColor="#fff" 
+        <Switch
+          thumbColor="#fff"
           trackColor={{ false: '#ccc', true: '#39CC83' }}
           value={open_on_weekends}
           onValueChange={setOpenOnWeekends}

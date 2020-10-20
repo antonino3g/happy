@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
-import MapView, { Marker, Callout, PROVIDER_GOOGLE} from 'react-native-maps';
+import MapView, { Marker, Callout, PROVIDER_GOOGLE } from 'react-native-maps';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
 
@@ -36,20 +36,20 @@ export default function OrphanagesMap() {
 
   return (
     <View style={styles.container}>
-    <MapView 
-      provider={PROVIDER_GOOGLE}
-      style={styles.map}
-      initialRegion={{
-        latitude: 2.8217734,
-        longitude: -60.6735358,
-        latitudeDelta: 0.008,
-        longitudeDelta: 0.008,
-      }}
-    >
-      {orphanages.map(orphanage => {
-        return (
-          <Marker
-            key={orphanage.id}
+      <MapView
+        provider={PROVIDER_GOOGLE}
+        style={styles.map}
+        initialRegion={{
+          latitude: 2.8217734,
+          longitude: -60.6735358,
+          latitudeDelta: 0.008,
+          longitudeDelta: 0.008,
+        }}
+      >
+        {orphanages.map(orphanage => {
+          return (
+            <Marker
+              key={orphanage.id}
               icon={mapMarker}
               calloutAnchor={{
                 x: 2.7,
@@ -62,24 +62,24 @@ export default function OrphanagesMap() {
             >
               <Callout tooltip onPress={() => handleNavigateToOrphanageDetails(orphanage.id)}>
                 <View style={styles.calloutContainer}>
-            <Text style={styles.calloutText}>{orphanage.name}</Text>
+                  <Text style={styles.calloutText}>{orphanage.name}</Text>
                 </View>
               </Callout>
-          </Marker>
-        );
-      })}
+            </Marker>
+          );
+        })}
 
-    </MapView>
+      </MapView>
 
-    <View style={styles.footer}>
-      <Text style={styles.footerText}>{orphanages.length} Orfanatos encontrados</Text>
+      <View style={styles.footer}>
+        <Text style={styles.footerText}>{orphanages.length} Orfanatos encontrados</Text>
 
-      <RectButton style={styles.createOrphanageButton} onPress={handleNavigateToCreateOrphanage}>
-        <Feather name="plus" size={20}color="#FFF" />
-      </RectButton>
+        <RectButton style={styles.createOrphanageButton} onPress={handleNavigateToCreateOrphanage}>
+          <Feather name="plus" size={20} color="#FFF" />
+        </RectButton>
 
+      </View>
     </View>
-  </View>
   )
 }
 
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
     height: 56,
     backgroundColor: '#15c3d6',
     borderRadius: 20,
-    
+
     justifyContent: 'center',
     alignItems: 'center'
   }
